@@ -13,6 +13,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    if (size.width < 249) print('Watch??');
+    if (size.width > 250 && size.width < 480) print('Mobile');
+    if (size.width > 481 && size.width < 768) print('Tablet');
+    if (size.width > 769 && size.width < 1279) print('Laptop');
+    if (size.width > 1280) print('Desktop');
     double paddingTop = size.height * 0.159;
     double fontTitleSize = size.height * 0.047;
     return Scaffold(
