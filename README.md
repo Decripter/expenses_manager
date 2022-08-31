@@ -1,6 +1,6 @@
 # expenses_manager
 
-A new Flutter project.
+A chalenge from Masterclass 5 - Fluterando.
 
 ## Getting Started
 
