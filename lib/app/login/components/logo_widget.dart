@@ -5,8 +5,9 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var size = MediaQuery.of(context).size;
-    var area = 40.0;
+    var size = MediaQuery.of(context).size;
+    var area = size.width * 0.1;
+    //40.0;
     double padding = area * 0.15;
     return Center(
       child: Row(

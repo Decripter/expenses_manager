@@ -1,6 +1,10 @@
-import 'package:expenses_manager/app/login/components/button_widget.dart';
-import 'package:expenses_manager/app/login/components/logo_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'screen_layouts/desktop.dart';
+import 'screen_layouts/laptop.dart';
+import 'screen_layouts/tablet.dart';
+import 'screen_layouts/watch.dart';
+import 'screen_layouts/mobile.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,103 +16,39 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    var isWatch = false;
+    var isMobile = false;
+    var isTablet = false;
+    var isLaptop = false;
+    var isDesktop = false;
+
     var size = MediaQuery.of(context).size;
-    if (size.width < 249) print('Watch??');
-    if (size.width > 250 && size.width < 480) print('Mobile');
-    if (size.width > 481 && size.width < 768) print('Tablet');
-    if (size.width > 769 && size.width < 1279) print('Laptop');
-    if (size.width > 1280) print('Desktop');
-    double paddingTop = size.height * 0.159;
-    double fontTitleSize = size.height * 0.047;
+
+    if (size.width < 249.98) {
+      isWatch = true;
+    } else if (size.width > 249.99 && size.width < 480.98) {
+      isMobile = true;
+    } else if (size.width > 480.99 && size.width < 768.98) {
+      isTablet = true;
+    } else if (size.width > 768.99 && size.width < 1279.98) {
+      isLaptop = true;
+    } else if (size.width > 1279.99) {
+      isDesktop = true;
+    }
     return Scaffold(
-      body: Container(
-        color: Colors.black,
-        child: Padding(
-          padding: EdgeInsets.only(top: paddingTop),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  LogoWidget(),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: paddingTop / 2.9,
-                    left: paddingTop / 3,
-                    right: paddingTop / 3),
-                child: Text(
-                  'Get your Money Under Control',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: fontTitleSize,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: paddingTop / 9.9,
-                    left: paddingTop / 3,
-                    right: paddingTop / 3),
-                child: Text(
-                  'Manage your expenses.\nSeamlessly.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 118, 118, 118),
-                    fontSize: fontTitleSize / 1.8,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 83),
-              const ButtonWidget(
-                buttonText: 'Sign Up with Email ID',
-                textColor: Colors.white,
-                buttonColor: Color.fromARGB(255, 94, 92, 229),
-              ),
-              const SizedBox(height: 13),
-              const ButtonWidget(
-                iconImage: 'assets/google_logo.png',
-                buttonText: 'Sign Up with Google',
-                textColor: Colors.black,
-                buttonColor: Colors.white,
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: paddingTop * 0.38,
-                    left: paddingTop / 3,
-                    right: paddingTop / 3),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Already have an account? ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: fontTitleSize / 2.3,
-                      ),
-                    ),
-                    Text(
-                      'Sign In',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                        color: Colors.white,
-                        fontSize: fontTitleSize / 2.3,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+        body: Container(
+      color: Colors.black,
+      child: isWatch
+          ? const Watch()
+          : isMobile
+              ? const Mobile()
+              : isTablet
+                  ? const Tablet()
+                  : isLaptop
+                      ? const Laptop()
+                      : isDesktop
+                          ? const Desktop()
+                          : Container(),
+    ));
   }
 }
