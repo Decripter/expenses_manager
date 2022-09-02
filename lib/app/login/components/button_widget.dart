@@ -13,13 +13,17 @@ class ButtonWidget extends StatelessWidget {
     required this.textColor,
     required this.buttonColor,
   });
-
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    double buttonSize = 40;
+    if (size.height * 0.1 < 40) {
+      buttonSize = size.height * 0.1;
+    }
     return Padding(
       padding: const EdgeInsets.only(left: 14.0, right: 14),
       child: Container(
-        height: 40,
+        height: buttonSize,
         decoration: BoxDecoration(
             color: buttonColor,
             borderRadius: const BorderRadius.all(Radius.circular(5))),

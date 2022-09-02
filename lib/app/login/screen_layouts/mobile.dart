@@ -16,12 +16,14 @@ class _MobileState extends State<Mobile> {
     var size = MediaQuery.of(context).size;
     double paddingTop = size.height * 0.159;
     double fontTitleSize = size.width * 0.07;
-
+    double logoSizeByHeight = 0;
     if (size.height < 635) {
       paddingTop = size.height * 0.1;
-
+      logoSizeByHeight = size.height * 0.1;
       fontTitleSize = size.height * 0.04;
     }
+    logoSizeByHeight = size.height * 0.1;
+
     return Container(
       color: Colors.black,
       child: Column(
@@ -29,8 +31,9 @@ class _MobileState extends State<Mobile> {
           const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              LogoWidget(),
+            children: [
+              LogoWidget(
+                  logoSize: logoSizeByHeight > 30 ? logoSizeByHeight : null),
             ],
           ),
           Padding(
@@ -62,7 +65,7 @@ class _MobileState extends State<Mobile> {
               ),
             ),
           ),
-          const SizedBox(height: 83),
+          const Spacer(),
           Padding(
             padding: EdgeInsets.only(
               left: fontTitleSize,
