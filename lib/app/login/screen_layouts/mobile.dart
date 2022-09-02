@@ -14,15 +14,15 @@ class _MobileState extends State<Mobile> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    Color buttonColor = const Color.fromARGB(255, 94, 92, 229);
+
     double paddingTop = size.height * 0.159;
     double fontTitleSize = size.width * 0.07;
-    double logoSizeByHeight = 0;
+    double logoSizeTenPercentHeight = size.height * 0.1;
     if (size.height < 635) {
       paddingTop = size.height * 0.1;
-      logoSizeByHeight = size.height * 0.1;
       fontTitleSize = size.height * 0.04;
     }
-    logoSizeByHeight = size.height * 0.1;
 
     return Container(
       color: Colors.black,
@@ -33,7 +33,9 @@ class _MobileState extends State<Mobile> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               LogoWidget(
-                  logoSize: logoSizeByHeight > 30 ? logoSizeByHeight : null),
+                  logoSize: logoSizeTenPercentHeight > 30
+                      ? logoSizeTenPercentHeight
+                      : null),
             ],
           ),
           Padding(
@@ -72,14 +74,14 @@ class _MobileState extends State<Mobile> {
               right: fontTitleSize,
             ),
             child: Column(
-              children: const [
+              children: [
                 ButtonWidget(
                   buttonText: 'Sign Up with Email ID',
                   textColor: Colors.white,
-                  buttonColor: Color.fromARGB(255, 94, 92, 229),
+                  buttonColor: buttonColor,
                 ),
-                SizedBox(height: 13),
-                ButtonWidget(
+                const SizedBox(height: 13),
+                const ButtonWidget(
                   iconImage: 'assets/google_logo.png',
                   buttonText: 'Sign Up with Google',
                   textColor: Colors.black,

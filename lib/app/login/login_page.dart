@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'screen_layouts/desktop.dart';
-import 'screen_layouts/laptop.dart';
-import 'screen_layouts/tablet.dart';
 import 'screen_layouts/watch.dart';
 import 'screen_layouts/mobile.dart';
+import 'screen_layouts/tablet.dart';
+import 'screen_layouts/laptop.dart';
+import 'screen_layouts/desktop.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -35,20 +35,22 @@ class _LoginPageState extends State<LoginPage> {
     } else if (size.width > 1279.99) {
       isDesktop = true;
     }
+
     return Scaffold(
-        body: Container(
-      color: Colors.black,
-      child: isWatch
-          ? const Watch()
-          : isMobile
-              ? const Mobile()
-              : isTablet
-                  ? const Tablet()
-                  : isLaptop
-                      ? const Laptop()
-                      : isDesktop
-                          ? const Desktop()
-                          : Container(),
-    ));
+      body: Container(
+        color: Colors.black,
+        child: isWatch
+            ? const Watch()
+            : isMobile
+                ? const Mobile()
+                : isTablet
+                    ? const Tablet()
+                    : isLaptop
+                        ? const Laptop()
+                        : isDesktop
+                            ? const Desktop()
+                            : Container(),
+      ),
+    );
   }
 }

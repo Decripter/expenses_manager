@@ -13,6 +13,8 @@ class Desktop extends StatefulWidget {
 class _DesktopState extends State<Desktop> {
   @override
   Widget build(BuildContext context) {
+    Color buttonColor = const Color.fromARGB(255, 94, 92, 229);
+
     var size = MediaQuery.of(context).size;
 
     double paddingTop = size.height * 0.159;
@@ -75,10 +77,10 @@ class _DesktopState extends State<Desktop> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const ButtonWidget(
+                      ButtonWidget(
                         buttonText: 'Sign Up with Email ID',
                         textColor: Colors.white,
-                        buttonColor: Color.fromARGB(255, 94, 92, 229),
+                        buttonColor: buttonColor,
                       ),
                       const SizedBox(height: 13),
                       const ButtonWidget(

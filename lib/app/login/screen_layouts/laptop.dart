@@ -17,6 +17,7 @@ class _LaptopState extends State<Laptop> {
 
     double paddingTop = size.height * 0.159;
     double fontTitleSize = size.height * 0.047;
+    Color buttonColor = const Color.fromARGB(255, 94, 92, 229);
 
     return Container(
       color: Colors.black,
@@ -75,10 +76,10 @@ class _LaptopState extends State<Laptop> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const ButtonWidget(
+                      ButtonWidget(
                         buttonText: 'Sign Up with Email ID',
                         textColor: Colors.white,
-                        buttonColor: Color.fromARGB(255, 94, 92, 229),
+                        buttonColor: buttonColor,
                       ),
                       const SizedBox(height: 13),
                       const ButtonWidget(

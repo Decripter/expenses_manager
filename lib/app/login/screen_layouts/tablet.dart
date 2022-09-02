@@ -14,6 +14,7 @@ class _TabletState extends State<Tablet> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    Color buttonColor = const Color.fromARGB(255, 94, 92, 229);
 
     double paddingTop = size.height * 0.159;
     double fontTitleSize = size.height * 0.047;
@@ -59,10 +60,10 @@ class _TabletState extends State<Tablet> {
               ),
             ),
             const Spacer(),
-            const ButtonWidget(
+            ButtonWidget(
               buttonText: 'Sign Up with Email ID',
               textColor: Colors.white,
-              buttonColor: Color.fromARGB(255, 94, 92, 229),
+              buttonColor: buttonColor,
             ),
             const SizedBox(height: 13),
             const ButtonWidget(

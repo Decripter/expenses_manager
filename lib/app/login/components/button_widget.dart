@@ -16,14 +16,16 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    double buttonSize = 40;
-    if (size.height * 0.1 < 40) {
-      buttonSize = size.height * 0.1;
+
+    double buttonSizeStandard = 40;
+
+    if (size.height * 0.1 < buttonSizeStandard) {
+      buttonSizeStandard = size.height * 0.1;
     }
     return Padding(
       padding: const EdgeInsets.only(left: 14.0, right: 14),
       child: Container(
-        height: buttonSize,
+        height: buttonSizeStandard,
         decoration: BoxDecoration(
             color: buttonColor,
             borderRadius: const BorderRadius.all(Radius.circular(5))),
@@ -36,7 +38,6 @@ class ButtonWidget extends StatelessWidget {
                 child: Image.asset(
                   iconImage!,
                   fit: BoxFit.scaleDown,
-                  filterQuality: FilterQuality.low,
                 ),
               ),
             Text(buttonText, style: TextStyle(color: textColor)),

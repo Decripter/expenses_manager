@@ -6,14 +6,14 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color logoColor = const Color.fromARGB(255, 94, 92, 229);
     var size = MediaQuery.of(context).size;
-    var area = size.width * 0.1;
+    var widthTenPercent = size.width * 0.1;
     if (logoSize != null) {
-      area = logoSize!;
+      widthTenPercent = logoSize!;
     }
 
-    //40.0;
-    double padding = area * 0.15;
+    double padding = widthTenPercent * 0.15;
     return Center(
       child: Row(
         children: [
@@ -23,33 +23,32 @@ class LogoWidget extends StatelessWidget {
                 padding: EdgeInsets.all(padding),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(area)),
-                    color: const Color.fromARGB(255, 94, 92, 229),
+                    borderRadius:
+                        BorderRadius.all(Radius.circular(widthTenPercent)),
+                    color: logoColor,
                   ),
-                  height: area,
-                  width: area,
+                  height: widthTenPercent,
+                  width: widthTenPercent,
                 ),
               ),
               Container(
-                height: area,
-                width: area,
+                height: widthTenPercent,
+                width: widthTenPercent,
                 decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(area)),
-                  color: const Color.fromARGB(255, 94, 92, 229),
-                ),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(widthTenPercent)),
+                    color: logoColor),
               ),
             ],
           ),
           Container(
-            height: area * 2 + padding,
-            width: area,
+            height: widthTenPercent * 2 + padding,
+            width: widthTenPercent,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(area),
-                  topRight: Radius.circular(area)),
-              color: const Color.fromARGB(255, 94, 92, 229),
-            ),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(widthTenPercent),
+                    topRight: Radius.circular(widthTenPercent)),
+                color: logoColor),
           ),
         ],
       ),
