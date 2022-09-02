@@ -30,8 +30,8 @@ class _LaptopState extends State<Laptop> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      LogoWidget(),
+                    children: [
+                      LogoWidget(logoSize: size.height * 0.150),
                     ],
                   ),
                   Padding(
@@ -64,7 +64,7 @@ class _LaptopState extends State<Laptop> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 83),
+                  const Spacer(),
                 ],
               ),
             ),
@@ -101,7 +101,7 @@ class _LaptopState extends State<Laptop> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: fontTitleSize / 2.3,
+                                fontSize: fontTitleSize / 2.8,
                               ),
                             ),
                             Text(
@@ -111,7 +111,7 @@ class _LaptopState extends State<Laptop> {
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline,
                                 color: Colors.white,
-                                fontSize: fontTitleSize / 2.3,
+                                fontSize: fontTitleSize / 2.8,
                               ),
                             ),
                           ],

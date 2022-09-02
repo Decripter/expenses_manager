@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 
 class LogoWidget extends StatelessWidget {
-  const LogoWidget({Key? key}) : super(key: key);
+  final double? logoSize;
+  const LogoWidget({super.key, this.logoSize});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var area = size.width * 0.1;
+    if (logoSize != null) {
+      area = logoSize!;
+    }
+
     //40.0;
     double padding = area * 0.15;
     return Center(

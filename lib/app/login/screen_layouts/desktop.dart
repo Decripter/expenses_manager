@@ -4,7 +4,7 @@ import '../components/button_widget.dart';
 import '../components/logo_widget.dart';
 
 class Desktop extends StatefulWidget {
-  const Desktop({Key? key}) : super(key: key);
+  const Desktop({super.key});
 
   @override
   State<Desktop> createState() => _DesktopState();
@@ -30,8 +30,8 @@ class _DesktopState extends State<Desktop> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      LogoWidget(),
+                    children: [
+                      LogoWidget(logoSize: size.height * 0.150),
                     ],
                   ),
                   Padding(
@@ -64,7 +64,7 @@ class _DesktopState extends State<Desktop> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 83),
+                  const Spacer(),
                 ],
               ),
             ),

@@ -25,8 +25,8 @@ class _TabletState extends State<Tablet> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                LogoWidget(),
+              children: [
+                LogoWidget(logoSize: size.height * 0.1),
               ],
             ),
             Padding(
@@ -58,7 +58,7 @@ class _TabletState extends State<Tablet> {
                 ),
               ),
             ),
-            const SizedBox(height: 83),
+            const Spacer(),
             const ButtonWidget(
               buttonText: 'Sign Up with Email ID',
               textColor: Colors.white,
@@ -101,6 +101,7 @@ class _TabletState extends State<Tablet> {
                 ],
               ),
             ),
+            const Spacer(),
           ],
         ),
       ),
